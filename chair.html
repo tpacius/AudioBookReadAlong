@@ -1,0 +1,60 @@
+ <!-- 
+ Adaptation of Weston Ruter's Audio Read Along project
+  -->
+
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Reading through Audio</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+  <body>
+	  <script src="read_along.js"></script>
+	  <script src="main.js"></script>
+
+	<p>
+		<audio id="text_audio" controls>
+			<source src="chair.mp3" type="audio/mp3">
+			<source src="chair.wav" type="audio/wav">
+		</audio>
+	</p>
+
+	<p class="audio_unavailable" hidden>
+					<em class="error"><strong>Error:</strong> You will not be able to do the read-along audio because your browser is not able to play MP3 or WAV audio formats.</em>
+	</p>
+
+
+	<p class="playback-rate" hidden title="Note that increasing the reading rate will decrease accuracy of word highlights">
+				<label for="playback-rate">Reading rate:</label>
+				<input id="playback-rate" type="range" min="0.80" max="1.20" value="1.0" step="0.1" disabled onchange='this.nextElementSibling.textContent = String(Math.round(this.valueAsNumber * 10) / 10) + "\u00D7";'>
+				<output>1&times;</output>
+	</p>
+
+	<p class="playback-rate-unavailable" hidden>
+				<em>(It seems your browser does not support <code>HTMLMediaElement.playbackRate</code>, so you will not be able to change the speech rate.)</em>
+	</p>
+
+	  <!-- This (Start: 00.000; End: 00.554) is (Start 00.740; End: 01.158) a (Start: 01.353; End: 01.808) chair (Start: 01.927; End: 02.508)-->
+
+	<div id="text">
+		<p>
+		<img src="chair.png">
+		</p>
+		<p>
+		<span data-dur="0.554" data-begin="0.000">This</span> <span data-dur="0.418" data-begin="0.740" >is</span> <span data-dur="0.455" data-begin="1.353">a</span> <span data-dur="0.581" data-begin="1.927">chair</span>.
+		</p>
+	 </div>
+
+	 <div id="navigation">
+	 	<ul>
+	 	<li><a href="index.html">Home</a></li>
+	 	<li id="active"><a href="chair.html">1</a></li>
+	 	<li><a href="lamp.html">2</a></li>
+	 	<li><a href="dog.html">3</a></li>
+	 	<li><a href="soccer.html">4</a></li>
+	 	</ul>
+	 </div>
+  </body>
+</html>

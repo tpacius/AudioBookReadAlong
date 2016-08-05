@@ -1,0 +1,59 @@
+<!-- 
+ Adaptation of Weston Ruter's Audio Read Along project
+ -->
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Reading through Audio</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+  <body>
+	  <script src="read_along.js"></script>
+	  <script src="main.js"></script>
+
+	<p>
+		<audio id="text_audio" controls>
+			<source src="soccer.mp3" type="audio/mp3">
+			<source src="soccer.wav" type="audio/wav">
+		</audio>
+	</p>
+
+	<p class="audio_unavailable" hidden>
+					<em class="error"><strong>Error:</strong> You will not be able to do the read-along audio because your browser is not able to play MP3 or WAV audio formats.</em>
+	</p>
+
+	<p class="playback-rate" hidden title="Note that increasing the reading rate will decrease accuracy of word highlights">
+				<label for="playback-rate">Reading rate:</label>
+				<input id="playback-rate" type="range" min="0.80" max="1.20" value="1.0" step="0.1" disabled onchange='this.nextElementSibling.textContent = String(Math.round(this.valueAsNumber * 10) / 10) + "\u00D7";'>
+				<output>1&times;</output>
+	</p>
+
+	<p class="playback-rate-unavailable" hidden>
+				<em>(It seems your browser does not support <code>HTMLMediaElement.playbackRate</code>, so you will not be able to change the speech rate.)</em>
+	</p>
+
+	<div id="text">
+		<p>
+		<img src="soccer.png">
+		</p>
+		<p>
+		<span data-dur="0.437" data-begin="0.000">This</span> <span data-dur="0.160" data-begin="0.450" >is</span> <span data-dur="0.097" data-begin="0.631">a</span> <span data-dur="0.525" data-begin="0.725">soccer</span> <span data-dur="0.288" data-begin="1.268">ball</span>.
+		</p>
+	 </div>
+
+	 <div id="navigation">
+		<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="chair.html">1</a></li>
+		<li><a href="lamp.html">2</a></li>
+		<li><a href="dog.html">2</a></li>
+		<li id="active"><a href="soccer.html">4</a></li>
+		<li><a href="index.html">Finish</a></li>
+
+		</ul>
+	 </div>
+
+  </body>
+</html>

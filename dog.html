@@ -1,0 +1,57 @@
+<!-- 
+ Adaptation of Weston Ruter's Audio Read Along project
+ -->
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Reading through Audio</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+  <body>
+	  <script src="read_along.js"></script>
+	  <script src="main.js"></script>
+
+	<p>
+		<audio id="text_audio" controls>
+			<source src="dog.mp3" type="audio/mp3">
+			<source src="dog.wav" type="audio/wav">
+		</audio>
+	</p>
+
+	<p class="audio_unavailable" hidden>
+					<em class="error"><strong>Error:</strong> You will not be able to do the read-along audio because your browser is not able to play MP3 or WAV audio formats.</em>
+	</p>
+
+	<p class="playback-rate" hidden title="Note that increasing the reading rate will decrease accuracy of word highlights">
+				<label for="playback-rate">Reading rate:</label>
+				<input id="playback-rate" type="range" min="0.80" max="1.20" value="1.0" step="0.1" disabled onchange='this.nextElementSibling.textContent = String(Math.round(this.valueAsNumber * 10) / 10) + "\u00D7";'>
+				<output>1&times;</output>
+	</p>
+
+	<p class="playback-rate-unavailable" hidden>
+				<em>(It seems your browser does not support <code>HTMLMediaElement.playbackRate</code>, so you will not be able to change the speech rate.)</em>
+	</p>
+
+	<div id="text">
+		<p>
+		<img src="dog.png">
+		</p>
+		<p>
+		<span data-dur="0.203" data-begin="0.000">The</span> <span data-dur="0.404" data-begin="0.258" >quick</span> <span data-dur="0.354" data-begin="0.813">brown</span> <span data-dur="0.647" data-begin="1.158">fox</span> <span data-dur="0.298" data-begin="1.988">jumped</span> <span data-dur="0.315" data-begin="2.299">over</span> <span data-dur="0.108" data-begin="2.719">the</span> <span data-dur="0.363" data-begin="2.936">lazy</span> <span data-dur="0.335" data-begin="3.359">dog</span>.
+		</p>
+	 </div>
+
+	 <div id="navigation">
+		<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="chair.html">1</a></li>
+		<li><a href="lamp.html">2</a></li>
+		<li id="active"><a href="dog.html">3</a></li>
+		<li><a href="soccer.html">4</a></li>
+		</ul>
+	 </div>
+
+  </body>
+</html>
