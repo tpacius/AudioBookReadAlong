@@ -23,8 +23,8 @@ body {
 }
 
 .initialized span[data-begin].speaking {
-    background-color: yellow;
-    box-shadow: 0px 0px 4px yellow;
+/*    background-color: yellow;
+    box-shadow: 0px 0px 4px yellow;*/
     font-size: 200%;
 }
 .initialized span[data-begin] {
